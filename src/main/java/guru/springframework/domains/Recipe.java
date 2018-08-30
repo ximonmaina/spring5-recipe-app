@@ -1,8 +1,5 @@
 package guru.springframework.domains;
 
-import guru.springframework.controllers.Category;
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.util.Set;
 
