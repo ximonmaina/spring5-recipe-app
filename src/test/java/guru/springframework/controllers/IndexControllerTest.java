@@ -1,6 +1,6 @@
 package guru.springframework.controllers;
 
-import guru.springframework.domains.Recipe;
+import guru.springframework.domain.Recipe;
 import guru.springframework.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,14 +15,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+/**
+ * Created by jt on 6/17/17.
+ */
 public class IndexControllerTest {
 
     @Mock
@@ -34,10 +34,10 @@ public class IndexControllerTest {
     IndexController controller;
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        controller = new IndexController(recipeService);
 
+        controller = new IndexController(recipeService);
     }
 
     @Test
@@ -47,11 +47,11 @@ public class IndexControllerTest {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
-
     }
 
     @Test
-    public  void getIndexPage() throws Exception {
+    public void getIndexPage() throws Exception {
+
         //given
         Set<Recipe> recipes = new HashSet<>();
         recipes.add(new Recipe());
@@ -76,4 +76,5 @@ public class IndexControllerTest {
         Set<Recipe> setInController = argumentCaptor.getValue();
         assertEquals(2, setInController.size());
     }
+
 }

@@ -1,6 +1,4 @@
-package guru.springframework.domains;
-
-import guru.springframework.domains.Recipe;
+package guru.springframework.domain;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -24,11 +22,11 @@ public class Category {
         this.id = id;
     }
 
-    public String getdescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
